@@ -32,7 +32,7 @@ const seller = () => {
       })
   }
   return (
-    <div className="min-h-screen bg-gray-100  py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8 mx-auto bg-white p-8 rounded-lg shadow-lg">
         <h1 className="text-3xl font-bold text-center text-gray-900 mb-8">ADD PRODUCT</h1>
         <form method='POST' onSubmit={addHandler} className="mt-8 space-y-6">
