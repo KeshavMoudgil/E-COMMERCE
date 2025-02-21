@@ -1,4 +1,4 @@
- const model = require("../model/model")
+ const model = require("../model/product")
 
  exports.createProduct = async (req, res, next) => {
   const {name, brand, price, description, category, rating} = req.body;

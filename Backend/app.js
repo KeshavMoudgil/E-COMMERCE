@@ -1,4 +1,4 @@
-// require('dotenv').config();
+require('dotenv').config();
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -6,8 +6,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 
-const MONGO_DB_URL =
-  `mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD}@cluster0.xpg4d.mongodb.net/${process.env.MONGO_DB_DATABASE}`;
+// const MONGO_DB_URL =
+//   `mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD}@cluster0.xpg4d.mongodb.net/${process.env.MONGO_DB_DATABASE}?retryWrites=true&w=majority&appName=Cluster0`;
 
 const router = require('./router/productRouter')
 
@@ -20,10 +20,16 @@ app.use(router);
 
 
 
-const PORT = 3000;
-// const MONGO_DB_URL = 'mongodb+srv://Keshav:Keshav@123@cluster0.xpg4d.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
-mongoose.connect(MONGO_DB_URL).then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server running at: http://localhost:${PORT}`);
-  });
-});      
+const PORT = 5173;
+const MONGO_DB_URL = `mongodb+srv://Keshav:${encodeURIComponent('Keshav@123')}@cluster0.xpg4d.mongodb.net/?retryWrites=true&w=majority`;
+
+mongoose.connect(MONGO_DB_URL)
+  .then(() => {
+    console.log('Connected to MongoDB Atlas');
+    app.listen(PORT, () => {
+      console.log(`Server running at: http://localhost:${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error('Error connecting to MongoDB:', error.message);
+  });      
