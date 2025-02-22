@@ -2,26 +2,31 @@ require('dotenv').config();
 
 const express = require("express");
 const mongoose = require("mongoose");
-// const bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 const cors = require("cors");
+
+const sellerRouter = require("./router/sellerRouter")
+const customerRouter = require("./router/customerRouter")
+// const productRouter = require("./router/productRouter");
+const errorController = require("./controller/errorController")
 const app = express();
 
-// const MONGO_DB_URL =
-//   `mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD}@cluster0.xpg4d.mongodb.net/${process.env.MONGO_DB_DATABASE}?retryWrites=true&w=majority&appName=Cluster0`;
+ //const MONGO_DB_URL = `mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD}@cluster0.xpg4d.mongodb.net/${process.env.MONGO_DB_DATABASE}?retryWrites=true&w=majority`;
 
-const router = require('./router/productRouter')
+
+
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('uploads')); 
 
-app.use(router);
+app.use(sellerRouter);
+app.use(customerRouter);
+// app.use(productRouter);
 
-
-
-const PORT = 5173;
-const MONGO_DB_URL = `mongodb+srv://Keshav:${encodeURIComponent('Keshav@123')}@cluster0.xpg4d.mongodb.net/?retryWrites=true&w=majority`;
+ const PORT = 5173;
+  const MONGO_DB_URL = `mongodb+srv://Keshav:${encodeURIComponent('Keshav@123')}@cluster0.xpg4d.mongodb.net/?retryWrites=true&w=majority`;
 
 mongoose.connect(MONGO_DB_URL)
   .then(() => {
