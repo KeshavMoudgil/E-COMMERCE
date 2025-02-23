@@ -11,11 +11,14 @@ const Nav = () => {
               E-COMMERCE
             </Link>
             <div className="ml-10 flex items-center space-x-4">
-              <Link to="/" className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">
-                Home
+              <Link to="/add-product" className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">
+                Add Product
               </Link>
-              <Link to="/about" className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">
-                About
+              <Link to="/oders" className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">
+                Oders
+              </Link>
+              <Link to="/cart" className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">
+                Cart
               </Link>
             </div>
           </div>

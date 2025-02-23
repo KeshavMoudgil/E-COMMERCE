@@ -1,9 +1,8 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Nav from './components/nav'
-import About from './components/seller/seller'
-import SignUp from './components/signUp/singUp'
-import Login from './components/signUp/login'
+import SignUp from './components/auth/singUp'
+import Login from './components/auth/login'
 
 
 function App() {
@@ -13,9 +12,8 @@ function App() {
     <>
     <BrowserRouter>
      <Nav />
-     <Routes>
-      <Route path='/' element={<div>HOME PAGE</div>} />
-      <Route path="/about" element={<About />} />
+      <Routes>
+      
       <Route path="/signUp" element={<SignUp />} />
       <Route path="/login" element={<Login />} />
       </Routes>
