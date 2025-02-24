@@ -11,7 +11,7 @@ const initialState = {
 export const fetchCustomerData = createAsyncThunk('customer/fetchCustomerData',
   async () => {
     const token = localStorage.getItem("token");
-    const response = await fetch('http://localhost:3000/api/customer/data', {
+    const response = await fetch('http://localhost:5173/api/customer/data', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -28,7 +28,7 @@ export const fetchCustomerData = createAsyncThunk('customer/fetchCustomerData',
 export const addToCart = createAsyncThunk('customer/addToCart',
   async (productId) => {
     const token = localStorage.getItem("token");
-    const response = await fetch(`http://localhost:3000/api/customer/cart/${productId}`, {
+    const response = await fetch(`http://localhost:5173/api/customer/cart/${productId}`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
